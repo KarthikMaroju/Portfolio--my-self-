@@ -1,17 +1,14 @@
-// Sidebar
 function toggleMenu(){
-  let s = document.getElementById("sidebar");
-  s.style.left = (s.style.left === "0px") ? "-250px" : "0px";
+  let s=document.getElementById("sidebar");
+  s.style.left=(s.style.left==="0px")?"-250px":"0px";
 }
 
-// Typing Animation
-const text = ["Full Stack Developer","UI/UX Designer","Python Developer"];
+const text=["Full Stack Developer","3D Web Designer","Python Engineer"];
 let i=0,j=0,current="",isDeleting=false;
 
 function type(){
-  current = text[i];
-  document.getElementById("typing").innerHTML = current.substring(0,j);
-
+  current=text[i];
+  document.getElementById("typing").innerHTML=current.substring(0,j);
   if(!isDeleting && j<current.length) j++;
   else if(isDeleting && j>0) j--;
   else{
@@ -22,15 +19,14 @@ function type(){
 }
 type();
 
-// Modal
 function openModal(id){
-  const content={
-    project1:"Advanced 3D animated portfolio website.",
-    project2:"Python theatre booking system with validation.",
-    cert1:"Certified in Python Programming.",
-    cert2:"Certified in Full Stack Development."
+  const data={
+    portfolio:"Ultra 3D animated developer portfolio.",
+    booking:"Python theatre booking system with validation logic.",
+    python:"Certified Python Developer.",
+    fullstack:"Certified Full Stack Developer."
   };
-  document.getElementById("modal-text").innerHTML=content[id];
+  document.getElementById("modal-text").innerHTML=data[id];
   document.getElementById("modal").style.display="block";
 }
 
@@ -38,29 +34,32 @@ function closeModal(){
   document.getElementById("modal").style.display="none";
 }
 
-// Dark Mode
-function toggleTheme(){
-  document.body.classList.toggle("light");
-}
-
-// THREE JS BACKGROUND
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
-const renderer = new THREE.WebGLRenderer({canvas:document.getElementById("bg")});
+/* THREE JS GALAXY */
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
+const renderer=new THREE.WebGLRenderer({canvas:document.getElementById("bg")});
 renderer.setSize(window.innerWidth,window.innerHeight);
 
-const geometry = new THREE.SphereGeometry(0.1,24,24);
-const material = new THREE.MeshBasicMaterial({color:0x00ffff});
-const sphere = new THREE.Mesh(geometry,material);
-scene.add(sphere);
+const geometry=new THREE.BufferGeometry();
+const vertices=[];
+for(let i=0;i<5000;i++){
+  vertices.push(
+    (Math.random()-0.5)*2000,
+    (Math.random()-0.5)*2000,
+    (Math.random()-0.5)*2000
+  );
+}
+geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));
+const material=new THREE.PointsMaterial({color:0x00ffff});
+const stars=new THREE.Points(geometry,material);
+scene.add(stars);
 
-camera.position.z = 5;
+camera.position.z=5;
 
 function animate(){
   requestAnimationFrame(animate);
-  sphere.rotation.x +=0.01;
-  sphere.rotation.y +=0.01;
+  stars.rotation.x+=0.0005;
+  stars.rotation.y+=0.0005;
   renderer.render(scene,camera);
 }
 animate();
-
