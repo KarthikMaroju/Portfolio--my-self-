@@ -1,14 +1,15 @@
+// Sidebar
 function toggleMenu(){
   let s=document.getElementById("sidebar");
-  s.style.left=(s.style.left==="0px")?"-250px":"0px";
+  s.style.left=(s.style.left==="0px")?"-200px":"0px";
 }
 
-const text=["Full Stack Developer","3D Web Designer","Python Engineer"];
+// Typing
+const text=["Full Stack Developer","3D UI Engineer","Python Backend Developer"];
 let i=0,j=0,current="",isDeleting=false;
-
 function type(){
   current=text[i];
-  document.getElementById("typing").innerHTML=current.substring(0,j);
+  document.querySelector(".typing").innerHTML=current.substring(0,j);
   if(!isDeleting && j<current.length) j++;
   else if(isDeleting && j>0) j--;
   else{
@@ -19,47 +20,34 @@ function type(){
 }
 type();
 
-function openModal(id){
-  const data={
-    portfolio:"Ultra 3D animated developer portfolio.",
-    booking:"Python theatre booking system with validation logic.",
-    python:"Certified Python Developer.",
-    fullstack:"Certified Full Stack Developer."
-  };
-  document.getElementById("modal-text").innerHTML=data[id];
-  document.getElementById("modal").style.display="block";
+// AI Chat simple
+function sendMessage(){
+  let input=document.getElementById("userInput").value;
+  let chat=document.getElementById("chat");
+  chat.innerHTML+="<p>You: "+input+"</p>";
+  chat.innerHTML+="<p>AI: Thanks for contacting Karthik!</p>";
 }
 
-function closeModal(){
-  document.getElementById("modal").style.display="none";
-}
-
-/* THREE JS GALAXY */
+// 3D Galaxy
 const scene=new THREE.Scene();
 const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
 const renderer=new THREE.WebGLRenderer({canvas:document.getElementById("bg")});
 renderer.setSize(window.innerWidth,window.innerHeight);
 
-const geometry=new THREE.BufferGeometry();
-const vertices=[];
+const starsGeometry=new THREE.BufferGeometry();
+const starVertices=[];
 for(let i=0;i<5000;i++){
-  vertices.push(
-    (Math.random()-0.5)*2000,
-    (Math.random()-0.5)*2000,
-    (Math.random()-0.5)*2000
-  );
+  starVertices.push((Math.random()-0.5)*2000);
 }
-geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));
-const material=new THREE.PointsMaterial({color:0x00ffff});
-const stars=new THREE.Points(geometry,material);
-scene.add(stars);
+starsGeometry.setAttribute('position',new THREE.Float32BufferAttribute(starVertices,3));
+const starsMaterial=new THREE.PointsMaterial({color:0x00ffff});
+const starField=new THREE.Points(starsGeometry,starsMaterial);
+scene.add(starField);
 
 camera.position.z=5;
-
 function animate(){
   requestAnimationFrame(animate);
-  stars.rotation.x+=0.0005;
-  stars.rotation.y+=0.0005;
+  starField.rotation.y+=0.0005;
   renderer.render(scene,camera);
 }
 animate();
