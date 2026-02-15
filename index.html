@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karthik Maroju | Ultra Pro Max</title>
+<title>Karthik Maroju | Cinematic Developer</title>
 
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -12,35 +12,60 @@
 </head>
 <body>
 
+<!-- Loading Screen -->
+<div id="loader">
+  <h1>Karthik Maroju</h1>
+</div>
+
 <canvas id="bg"></canvas>
+
+<div class="cursor"></div>
 
 <!-- Sidebar -->
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 <div class="sidebar" id="sidebar">
-  <h2>Karthik Maroju</h2>
-  <a href="#frame1">Home</a>
-  <a href="#frame2">About</a>
-  <a href="#frame3">Projects</a>
-  <a href="#frame4">Certifications</a>
-  <a href="#frame5">Contact</a>
+  <a href="#f1">Home</a>
+  <a href="#f2">About</a>
+  <a href="#f3">Projects</a>
+  <a href="#f4">Skills</a>
+  <a href="#f5">Contact</a>
 </div>
 
-<!-- Theme -->
-<div class="theme-toggle" onclick="toggleTheme()">🌙</div>
-
 <!-- FRAME 1 -->
-<section class="frame" id="frame1">
-  <img src="profile.jpg" class="profile-img">
+<section class="frame" id="f1">
+  <img src="profile.jpg" class="profile">
   <h1>Karthik Maroju</h1>
-  <h2><span id="typing"></span></h2>
+  <p class="typing"></p>
   <a href="resume.pdf" download class="btn">Download Resume</a>
 </section>
 
 <!-- FRAME 2 -->
-<section class="frame" id="frame2">
+<section class="frame" id="f2">
   <div class="glass">
     <h2>About Me</h2>
-    <p>Passionate Full Stack Developer specialized in 3D Web Experiences and Python Systems.</p>
+    <p>
+      I am Karthik Maroju, a highly motivated Full Stack Developer 
+      passionate about building cinematic 3D web experiences and scalable backend systems.
+      I specialize in HTML, CSS, JavaScript, Python and modern UI/UX engineering.
+      My goal is to craft interactive digital products that combine performance,
+      aesthetics, and innovation.
+    </p>
+  </div>
+</section>
+
+<!-- FRAME 3 -->
+<section class="frame" id="f3">
+  <div class="glass">
+    <h2>Projects</h2>
+    <div class="card">3D Portfolio Website</div>
+    <div class="card">Theatre Booking System (Python)</div>
+  </div>
+</section>
+
+<!-- FRAME 4 -->
+<section class="frame" id="f4">
+  <div class="glass">
+    <h2>Skills</h2>
 
     <div class="cube-container">
       <div class="cube">
@@ -52,39 +77,22 @@
         <div>Git</div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- FRAME 3 -->
-<section class="frame" id="frame3">
-  <div class="glass">
-    <h2>Projects</h2>
-    <div class="card" onclick="openModal('portfolio')">3D Portfolio Website</div>
-    <div class="card" onclick="openModal('booking')">Theatre Booking System</div>
-  </div>
-</section>
-
-<!-- FRAME 4 -->
-<section class="frame" id="frame4">
-  <div class="glass">
-    <h2>Certifications</h2>
-    <div class="card" onclick="openModal('python')">Python Certification</div>
-    <div class="card" onclick="openModal('fullstack')">Full Stack Certification</div>
-
-    <h2>Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Web Developer</h3>
-        <p>Built interactive 3D web apps and automation systems.</p>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- FRAME 5 -->
-<section class="frame" id="frame5">
+<section class="frame" id="f5">
   <div class="glass">
     <h2>Contact Me</h2>
+
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+
     <div class="social">
       <a href="https://linkedin.com/in/karthik-maroju"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/in/karthik-maroju"><i class="fab fa-github"></i></a>
@@ -92,19 +100,15 @@
       <a href="https://web.whatsapp.com/"><i class="fab fa-whatsapp"></i></a>
     </div>
 
-    <div class="ai-box">
-      <p>AI Chat UI Coming Soon 🚀</p>
+    <div class="chat-box">
+      <h3>AI Assistant</h3>
+      <div id="chat"></div>
+      <input type="text" id="userInput" placeholder="Ask something...">
+      <button onclick="sendMessage()">Send</button>
     </div>
+
   </div>
 </section>
-
-<!-- Modal -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <span onclick="closeModal()" class="close">&times;</span>
-    <div id="modal-text"></div>
-  </div>
-</div>
 
 <script src="script.js"></script>
 </body>
