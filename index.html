@@ -3,92 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karthik Maroju | Premium 3D Portfolio</title>
+<title>Karthik Maroju | Ultra Pro Max</title>
 
 <link rel="stylesheet" href="style.css">
-<script src="https://kit.fontawesome.com/your-fontawesome-kit.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://kit.fontawesome.com/your-fontawesome-kit.js"></script>
 
 </head>
 <body>
 
 <canvas id="bg"></canvas>
 
-<!-- Menu -->
+<!-- Sidebar -->
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
 <div class="sidebar" id="sidebar">
   <h2>Karthik Maroju</h2>
-  <a href="#about"><i class="fas fa-user"></i> About</a>
-  <a href="#skills"><i class="fas fa-code"></i> Skills</a>
-  <a href="#projects"><i class="fas fa-laptop-code"></i> Projects</a>
-  <a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a>
-  <a href="#experience"><i class="fas fa-briefcase"></i> Experience</a>
+  <a href="#frame1">Home</a>
+  <a href="#frame2">About</a>
+  <a href="#frame3">Projects</a>
+  <a href="#frame4">Certifications</a>
+  <a href="#frame5">Contact</a>
 </div>
 
-<!-- Dark Mode -->
+<!-- Theme -->
 <div class="theme-toggle" onclick="toggleTheme()">🌙</div>
 
-<!-- Hero -->
-<section class="hero">
+<!-- FRAME 1 -->
+<section class="frame" id="frame1">
   <img src="profile.jpg" class="profile-img">
   <h1>Karthik Maroju</h1>
   <h2><span id="typing"></span></h2>
-
   <a href="resume.pdf" download class="btn">Download Resume</a>
+</section>
 
-  <div class="social">
-    <a href="https://linkedin.com/in/karthik-maroju" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/in/karthik-maroju" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://www.instagram.com/mr.karthik1_4_3_?igsh=MW4ydHowM2pycnNneg==" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://web.whatsapp.com/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<!-- FRAME 2 -->
+<section class="frame" id="frame2">
+  <div class="glass">
+    <h2>About Me</h2>
+    <p>Passionate Full Stack Developer specialized in 3D Web Experiences and Python Systems.</p>
+
+    <div class="cube-container">
+      <div class="cube">
+        <div>HTML</div>
+        <div>CSS</div>
+        <div>JS</div>
+        <div>Python</div>
+        <div>UI/UX</div>
+        <div>Git</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- About -->
-<section id="about" class="glass">
-<h2>About Me</h2>
-<p>
-I am Karthik Maroju, a passionate Full Stack Developer and UI/UX Designer 
-specialized in creating modern 3D interactive web applications. 
-I build scalable systems using Python and craft premium UI experiences.
-</p>
-</section>
-
-<!-- Skills -->
-<section id="skills" class="glass">
-<h2>Skills</h2>
-<div class="skill">
-  <p>HTML</p><div class="bar"><span style="width:95%"></span></div>
-  <p>CSS</p><div class="bar"><span style="width:90%"></span></div>
-  <p>JavaScript</p><div class="bar"><span style="width:85%"></span></div>
-  <p>Python</p><div class="bar"><span style="width:88%"></span></div>
-</div>
-</section>
-
-<!-- Projects -->
-<section id="projects" class="glass">
-<h2>Projects</h2>
-<div class="card" onclick="openModal('project1')">3D Portfolio Website</div>
-<div class="card" onclick="openModal('project2')">Theatre Booking System</div>
-</section>
-
-<!-- Certifications -->
-<section id="certifications" class="glass">
-<h2>Certifications</h2>
-<div class="card" onclick="openModal('cert1')">Python Certification</div>
-<div class="card" onclick="openModal('cert2')">Full Stack Certification</div>
-</section>
-
-<!-- Experience -->
-<section id="experience" class="glass">
-<h2>Experience</h2>
-<div class="timeline">
-  <div class="timeline-item">
-    <h3>Web Developer</h3>
-    <p>Built responsive websites and interactive 3D interfaces.</p>
+<!-- FRAME 3 -->
+<section class="frame" id="frame3">
+  <div class="glass">
+    <h2>Projects</h2>
+    <div class="card" onclick="openModal('portfolio')">3D Portfolio Website</div>
+    <div class="card" onclick="openModal('booking')">Theatre Booking System</div>
   </div>
-</div>
+</section>
+
+<!-- FRAME 4 -->
+<section class="frame" id="frame4">
+  <div class="glass">
+    <h2>Certifications</h2>
+    <div class="card" onclick="openModal('python')">Python Certification</div>
+    <div class="card" onclick="openModal('fullstack')">Full Stack Certification</div>
+
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Web Developer</h3>
+        <p>Built interactive 3D web apps and automation systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRAME 5 -->
+<section class="frame" id="frame5">
+  <div class="glass">
+    <h2>Contact Me</h2>
+    <div class="social">
+      <a href="https://linkedin.com/in/karthik-maroju"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/in/karthik-maroju"><i class="fab fa-github"></i></a>
+      <a href="https://www.instagram.com/mr.karthik1_4_3_?igsh=MW4ydHowM2pycnNneg=="><i class="fab fa-instagram"></i></a>
+      <a href="https://web.whatsapp.com/"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <div class="ai-box">
+      <p>AI Chat UI Coming Soon 🚀</p>
+    </div>
+  </div>
 </section>
 
 <!-- Modal -->
